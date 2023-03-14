@@ -21,16 +21,39 @@ let activeImg = 0;
 for (let i = 0; i < imgArray.length; i++) {
     let imgSrc = imgArray[i];
     // imgSrc va a prendere l'img in posizione i
-    const imgElement = `<img class="img-fluid rounded-2 ${i === activeImg ? 'active' : ''}" src="${imgSrc}" alt="">`;
-    // creo la const imgElement, che dentro ha un template literal
-    // alla posizione corrispondente al valore di activeImg (che dopo aumenta col bottone) allora metto active come classe, altrimenti non metto niente
-    // non ho tanto capito a cosa serve sta cosa
+
+    let activeImgClass = '';
+    if (i == activeImg) {
+        activeImgClass = 'active';
+    }
+    // se i é uguale ad activeImg  allora metto "active"
+    // let activeImgClass = i === activeImg ? 'active' : '';
+    // forma col ternary
+
+
+    const imgElement = `<img class="img-fluid rounded-2 ${activeImgClass}" src="${imgSrc}" alt="">`;
+
+    // mi scrivo in pagina letteralmente l'elemento dell'html con activeimgClass = active
+    // se i é uguale ad activeeImg 0 in questo caso
+
 
     console.log(imgElement);
 
-    imagesElement.insertAdjacentHTML("afterbegin", imgElement)
+    // imagesElement.insertAdjacentHTML("afterbegin", imgElement)
     // prendo il contenitore images dalla dom, e ci scrivo dentro
     // dopo l'inizio: imgElement, che é un template literal della imagine
+
+    // imagesElement.innerHTML += imgElement;
+
+    const imgEl = document.createElement('img');
+    // creo l'elemento img
+    imgEl.setAttribute('src', imgSrc);
+    // gli metto l'attributo src = imgSrc
+    imgEl.setAttribute('class', `img-fluid ${i === activeImg ? 'active' : ''}`)
+    // gli metto la classe con active o no
+    imagesElement.append(imgEl)
+    // al contenitore delle immagini appendo via via i vari pezzi.
+
 
 }
 
