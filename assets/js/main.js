@@ -16,7 +16,7 @@ const imgArray = [
 ]
 
 
-let imgCounter = 2;
+let imgCounter = 0;
 
 // 🟢 ciclo for per far scorrere le img
 for (let i = 0; i < imgArray.length; i++) {
@@ -66,11 +66,12 @@ nextButtonEl.addEventListener('click', function () {
             prevImgEl.classList.add('hidden');
             let currentImgEl = document.querySelector(`.x${i}`);
             currentImgEl.classList.remove('hidden');
-
-
         }
+        // // loop bonus 
+        // if (imgCounter > (imgArray.length - 1)) {
+        //     imgCounter = 0
+        // }
     }
-    //
 })
 
 
