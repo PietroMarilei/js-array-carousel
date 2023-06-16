@@ -26,7 +26,7 @@ for (let i = 0; i < imgArray.length; i++) {
     const imgEl = document.createElement('img');
     // creo l'elemento img
     imgEl.setAttribute('src', imgSrc);
-    imgEl.setAttribute('class', `img-fluid hidden x${i}`)
+    imgEl.setAttribute('class', `hidden x${i}`)
     //le appendo al container in mezzo
     centerContainer.append(imgEl)
 
@@ -57,23 +57,41 @@ for (let i = 0; i < imgArray.length; i++) {
 
 nextButtonEl.addEventListener('click', function () {
     imgCounter++
+    if (imgCounter > imgArray.length - 1) {
+        imgCounter = 0
+    }
+    console.log(imgCounter);
+
+    for (let i = 0; i < imgArray.length; i++) {
+
+        if (i == imgCounter) {
+            //quando il counter sta a 0 togli solo la classe hidden dall'img dopo, altrimenti prima la rimetti a quella prima e poi la tolgi a quella dopo. 
+            if (!imgCounter == 0) {
+                let prevImgEl = document.querySelector(`.x${i - 1}`);
+                prevImgEl.classList.add('hidden');
+            }
+            let currentImgEl = document.querySelector(`.x${i}`);
+            currentImgEl.classList.remove('hidden');
+        }
+    }
+})
+
+// ⏪prev button
+prevButtonEl.addEventListener('click', function () {
+    imgCounter--
+
     console.log(imgCounter);
 
     for (let i = 0; i < imgArray.length; i++) {
         let imgSrc = imgArray[i];
 
+
         if (i == imgCounter) {
-            //queste sono le img a destra
             let prevImgEl = document.querySelector(`.x${i - 1}`);
-            prevImgEl.classList.add('hidden');
+            prevImgEl.classList.remove('hidden');
             let currentImgEl = document.querySelector(`.x${i}`);
-            currentImgEl.classList.remove('hidden');
+            currentImgEl.classList.add('hidden');
         }
-        // loop bonus 
-        if (imgCounter > (imgArray.length - 1)) {
-            imgCounter = 0
-        }
+
     }
 })
-
-// ⏪
