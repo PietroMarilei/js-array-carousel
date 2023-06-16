@@ -53,6 +53,8 @@ for (let i = 0; i < imgArray.length; i++) {
 
 // --------------- bottoni 🔽⏩⏪
 
+// ⏩next button
+
 nextButtonEl.addEventListener('click', function () {
     imgCounter++
     console.log(imgCounter);
@@ -74,4 +76,4 @@ nextButtonEl.addEventListener('click', function () {
     }
 })
 
-
+// ⏪
