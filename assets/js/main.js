@@ -15,7 +15,7 @@ const imgArray = [
     './assets/img/05.webp',
 ]
 
-
+console.log('lunghezza rray img:', imgArray.length);
 let imgCounter = 0;
 
 // 🟢 ciclo for per far scorrere le img
@@ -56,34 +56,27 @@ for (let i = 0; i < imgArray.length; i++) {
 // ⏩next button
 
 nextButtonEl.addEventListener('click', function () {
+
+    let currentImgEl = document.querySelector(`.x${imgCounter}`);
+    currentImgEl.classList.toggle("hidden")
+
     imgCounter++
+    console.log(imgCounter);
+    //levo hidden dalla classe dopo perhé imgcounter è aumentato di 1
     if (imgCounter > imgArray.length - 1) {
         imgCounter = 0
     }
-    console.log(imgCounter);
-
-    for (let i = 0; i < imgArray.length; i++) {
-
-        if (i == imgCounter) {
-            //quando il counter sta a 0 togli solo la classe hidden dall'img dopo, altrimenti prima la rimetti a quella prima e poi la tolgi a quella dopo. 
-            if (!imgCounter == 0) {
-                let prevImgEl = document.querySelector(`.x${i - 1}`);
-                prevImgEl.classList.add('hidden');
-            }
-            let currentImgEl = document.querySelector(`.x${i}`);
-            currentImgEl.classList.remove('hidden');
-        }
-    }
+    let nextImgEl = document.querySelector(`.x${imgCounter}`);
+    nextImgEl.classList.toggle("hidden")
 })
 
 // ⏪prev button
+
 prevButtonEl.addEventListener('click', function () {
     imgCounter--
-
     console.log(imgCounter);
 
     for (let i = 0; i < imgArray.length; i++) {
-        let imgSrc = imgArray[i];
 
 
         if (i == imgCounter) {
