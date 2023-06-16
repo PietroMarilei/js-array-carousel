@@ -40,7 +40,7 @@ for (let i = 0; i < imgArray.length; i++) {
     }
 
 }
-// //💥 bonus
+//💥 bonus
 // // prev
 // const nodePrev = document.querySelector(`.x${imgCounter - 1}`)
 // const prevImg = nodePrev.cloneNode(true);
@@ -51,6 +51,8 @@ for (let i = 0; i < imgArray.length; i++) {
 // const nextImg = nodeNext.cloneNode(true);
 // nextImg.classList.remove('hidden');
 // nextContainer.append(nextImg);
+
+
 
 // --------------- bottoni 🔽⏩⏪
 
@@ -66,6 +68,7 @@ nextButtonEl.addEventListener('click', function () {
     //levo hidden dalla classe dopo perhé imgcounter è aumentato di 1
     if (imgCounter > imgArray.length - 1) {
         imgCounter = 0
+        console.log('img counter cambiato', imgCounter);
     }
     let nextImgEl = document.querySelector(`.x${imgCounter}`);
     nextImgEl.classList.toggle("hidden")
