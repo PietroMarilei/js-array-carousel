@@ -69,10 +69,10 @@ nextButtonEl.addEventListener('click', function () {
             let currentImgEl = document.querySelector(`.x${i}`);
             currentImgEl.classList.remove('hidden');
         }
-        // // loop bonus 
-        // if (imgCounter > (imgArray.length - 1)) {
-        //     imgCounter = 0
-        // }
+        // loop bonus 
+        if (imgCounter > (imgArray.length - 1)) {
+            imgCounter = 0
+        }
     }
 })
 
