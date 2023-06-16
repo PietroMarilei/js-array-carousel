@@ -1,0 +1,13 @@
+/* .images img:not(.active) {
+    display: none;
+} */
+
+/* tutte le img che non hanno active hanno display None */
+
+.hidden {
+    display: none;
+}
+
+img {
+    max-width: 300px
+}
