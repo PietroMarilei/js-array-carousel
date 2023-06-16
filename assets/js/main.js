@@ -15,10 +15,11 @@ const imgArray = [
     './assets/img/05.webp',
 ]
 
-console.log('lunghezza rray img:', imgArray.length);
+console.log('lunghezza array img:', imgArray.length);
 let imgCounter = 0;
+console.log('imgcounter init', imgCounter);
 
-// 🟢 ciclo for per far scorrere le img
+// 🟢 ciclo for per creare le img 
 for (let i = 0; i < imgArray.length; i++) {
     let imgSrc = imgArray[i];
 
@@ -73,18 +74,18 @@ nextButtonEl.addEventListener('click', function () {
 // ⏪prev button
 
 prevButtonEl.addEventListener('click', function () {
+    let currentImgEl = document.querySelector(`.x${imgCounter}`);
+    currentImgEl.classList.toggle("hidden")
+
     imgCounter--
     console.log(imgCounter);
-
-    for (let i = 0; i < imgArray.length; i++) {
-
-
-        if (i == imgCounter) {
-            let prevImgEl = document.querySelector(`.x${i - 1}`);
-            prevImgEl.classList.remove('hidden');
-            let currentImgEl = document.querySelector(`.x${i}`);
-            currentImgEl.classList.add('hidden');
-        }
-
+    if (imgCounter < 0) {
+        imgCounter = imgArray.length - 1
+        console.log('img counter cambiato', imgCounter);
     }
+
+    let prevImgEl = document.querySelector(`.x${imgCounter}`);
+    prevImgEl.classList.toggle("hidden")
+
+
 })
