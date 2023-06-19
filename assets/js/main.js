@@ -16,7 +16,7 @@ const imgArray = [
 ]
 
 console.log('lunghezza array img:', imgArray.length);
-let imgCounter = 0;
+let imgCounter = 2;
 console.log('imgcounter init', imgCounter);
 
 // 🟢 ciclo for per creare le img 
@@ -38,40 +38,38 @@ for (let i = 0; i < imgArray.length; i++) {
     }
 
 }
+//--------------------------------------------------
 //💥 bonus
 // const imgDomArray = document.querySelectorAll('.center_cont > img');
 // console.log(imgDomArray);
 // // prev
 // if (imgCounter > 0) {
-//     //vado a quella prima
-//     const nodePrev = imgDomArray[imgCounter - 1]
-//     const prevImg = nodePrev.cloneNode(true);
-//     prevImg.classList.remove('hidden');
-//     prevContainer.append(prevImg);
+//     prevContainer.innerHTML =
+//         `<img src="${imgArray[imgCounter - 1]}" class="x${imgCounter}">`;
+
 
 // } else {
 //     //vado all'ultima
-//     const nodePrev = imgDomArray[imgCounter + imgDomArray.length - 1];
-//     const prevImg = nodePrev.cloneNode(true);
-//     prevImg.classList.remove('hidden');
-//     prevContainer.append(prevImg);
+//     prevContainer.innerHTML =
+//         `<img src="${imgArray[imgCounter - 1]}" class="x${imgCounter}">`;
 // }
 
-// // ❌📛questo non va bene
-// // //next
-// // const nodeNext = imgDomArray[imgCounter + 1];
-// // const nextImg = nodeNext.cloneNode(true);
-// // nextImg.classList.remove('hidden');
-// // nextContainer.append(nextImg);
+// ❌📛questo non va bene
+// //next
+// const nodeNext = imgDomArray[imgCounter + 1];
+// const nextImg = nodeNext.cloneNode(true);
+// nextImg.classList.remove('hidden');
+// nextContainer.append(nextImg);
 
-// // if (imgCounter > imgArray.length - 1) {
-// //     const nodeNext = imgDomArray[0];
-// //     // vado alla prima
-// //     const nextImg = nodeNext.cloneNode(true);
-// //     nextImg.classList.remove('hidden');
-// //     nextContainer.append(nextImg);
-// // }
+// if (imgCounter > imgArray.length - 1) {
+//     const nodeNext = imgDomArray[0];
+//     // vado alla prima
+//     const nextImg = nodeNext.cloneNode(true);
+//     nextImg.classList.remove('hidden');
+//     nextContainer.append(nextImg);
+// }
 
+//--------------------------------------------------
 
 
 // --------------- bottoni 🔽⏩⏪
