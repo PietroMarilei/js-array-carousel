@@ -16,7 +16,7 @@ const imgArray = [
 ]
 
 console.log('lunghezza array img:', imgArray.length);
-let imgCounter = 2;
+let imgCounter = 0;
 console.log('imgcounter init', imgCounter);
 
 // 🟢 ciclo for per creare le img 
@@ -40,22 +40,24 @@ for (let i = 0; i < imgArray.length; i++) {
 }
 //--------------------------------------------------
 //💥 bonus
-// const imgDomArray = document.querySelectorAll('.center_cont > img');
-// console.log(imgDomArray);
-// // prev
-// if (imgCounter > 0) {
-//     prevContainer.innerHTML =
-//         `<img src="${imgArray[imgCounter - 1]}" class="x${imgCounter}">`;
+const imgDomArray = document.querySelectorAll('.center_cont > img');
+console.log(imgDomArray);
+// prev
+if (imgCounter > 0) {
+    console.log('entrato nell if di prev ');
+    prevContainer.innerHTML =
+
+        `<img src="${imgArray[imgCounter - 1]}" class="x${imgCounter}">`;
 
 
-// } else {
-//     //vado all'ultima
-//     prevContainer.innerHTML =
-//         `<img src="${imgArray[imgCounter - 1]}" class="x${imgCounter}">`;
-// }
+} else {
+    //vado all'ultima
+    prevContainer.innerHTML =
+        `<img src="${imgArray[imgArray.length - 1]}" class="x${imgArray.length - 1}">`;
+}
 
-// ❌📛questo non va bene
 // //next
+// ❌📛questo non va bene
 // const nodeNext = imgDomArray[imgCounter + 1];
 // const nextImg = nodeNext.cloneNode(true);
 // nextImg.classList.remove('hidden');
@@ -78,7 +80,7 @@ for (let i = 0; i < imgArray.length; i++) {
 
 nextButtonEl.addEventListener('click', function () {
 
-    let currentImgEl = document.querySelector(`.x${imgCounter}`);
+    let currentImgEl = document.querySelector(`.center_cont > .x${imgCounter}`);
     currentImgEl.classList.toggle("hidden")
 
     imgCounter++
@@ -88,14 +90,14 @@ nextButtonEl.addEventListener('click', function () {
         imgCounter = 0
         console.log('img counter cambiato', imgCounter);
     }
-    let nextImgEl = document.querySelector(`.x${imgCounter}`);
+    let nextImgEl = document.querySelector(`.center_cont > .x${imgCounter}`);
     nextImgEl.classList.toggle("hidden")
 })
 
 // ⏪prev button
 
 prevButtonEl.addEventListener('click', function () {
-    let currentImgEl = document.querySelector(`.x${imgCounter}`);
+    let currentImgEl = document.querySelector(`.center_cont > .x${imgCounter}`);
     currentImgEl.classList.toggle("hidden")
 
     imgCounter--
@@ -105,7 +107,7 @@ prevButtonEl.addEventListener('click', function () {
         console.log('img counter cambiato', imgCounter);
     }
 
-    let prevImgEl = document.querySelector(`.x${imgCounter}`);
+    let prevImgEl = document.querySelector(`.center_cont > .x${imgCounter}`);
     prevImgEl.classList.toggle("hidden")
 
 
