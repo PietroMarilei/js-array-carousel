@@ -52,7 +52,7 @@ if (imgCounter > 0) {
 
 //next
 if (imgCounter > imgArray.length - 1) {
-    nextContainer.innerHTML = `<img src="${imgArray[imgArray.length - 1]}" class="x4${imgArray[imgArray.length - 1]}"></img>`
+    nextContainer.innerHTML = `<img src="${imgArray[imgArray.length - 1]}" class="x${imgArray[imgArray.length - 1]}"></img>`
 } else {
     nextContainer.innerHTML = `<img src="${imgArray[imgCounter + 1]}" class="x${imgCounter + 1}">`;
 }
@@ -73,6 +73,7 @@ nextButtonEl.addEventListener('click', function () {
     imgCounter++
     console.log(imgCounter);
     //levo hidden dalla classe dopo perhé imgcounter è aumentato di 1
+
     if (imgCounter > imgArray.length - 1) {
         imgCounter = 0
         console.log('img counter cambiato', imgCounter);
@@ -82,6 +83,7 @@ nextButtonEl.addEventListener('click', function () {
 
     //next preview scroll
     nextPreviewImgEl.setAttribute("src", `${imgArray[imgCounter + 1]}`);
+
     prevPreviewImgEl.setAttribute('src', `${imgArray[imgCounter - 1]}`);
 })
 
