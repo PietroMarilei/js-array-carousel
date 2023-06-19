@@ -40,39 +40,26 @@ for (let i = 0; i < imgArray.length; i++) {
 }
 //--------------------------------------------------
 //💥 bonus
-const imgDomArray = document.querySelectorAll('.center_cont > img');
-console.log(imgDomArray);
+
 // prev
 if (imgCounter > 0) {
-    console.log('entrato nell if di prev ');
     prevContainer.innerHTML =
-
         `<img src="${imgArray[imgCounter - 1]}" class="x${imgCounter}">`;
-
-
 } else {
-    //vado all'ultima
     prevContainer.innerHTML =
         `<img src="${imgArray[imgArray.length - 1]}" class="x${imgArray.length - 1}">`;
 }
 
-// //next
-// ❌📛questo non va bene
-// const nodeNext = imgDomArray[imgCounter + 1];
-// const nextImg = nodeNext.cloneNode(true);
-// nextImg.classList.remove('hidden');
-// nextContainer.append(nextImg);
-
-// if (imgCounter > imgArray.length - 1) {
-//     const nodeNext = imgDomArray[0];
-//     // vado alla prima
-//     const nextImg = nodeNext.cloneNode(true);
-//     nextImg.classList.remove('hidden');
-//     nextContainer.append(nextImg);
-// }
+//next
+if (imgCounter > imgArray.length - 1) {
+    nextContainer.innerHTML = `<img src="${imgArray[imgArray.length - 1]}" class="x4${imgArray[imgArray.length - 1]}"></img>`
+} else {
+    nextContainer.innerHTML = `<img src="${imgArray[imgCounter + 1]}" class="x${imgCounter + 1}">`;
+}
 
 //--------------------------------------------------
-
+const nextPreviewImgEl = document.querySelector('.next_cont > img');
+const prevPreviewImgEl = document.querySelector('.prev_cont > img');
 
 // --------------- bottoni 🔽⏩⏪
 
@@ -91,7 +78,11 @@ nextButtonEl.addEventListener('click', function () {
         console.log('img counter cambiato', imgCounter);
     }
     let nextImgEl = document.querySelector(`.center_cont > .x${imgCounter}`);
-    nextImgEl.classList.toggle("hidden")
+    nextImgEl.classList.toggle("hidden");
+
+    //next preview scroll
+    nextPreviewImgEl.setAttribute("src", `${imgArray[imgCounter + 1]}`);
+    prevPreviewImgEl.setAttribute('src', `${imgArray[imgCounter - 1]}`);
 })
 
 // ⏪prev button
@@ -109,6 +100,10 @@ prevButtonEl.addEventListener('click', function () {
 
     let prevImgEl = document.querySelector(`.center_cont > .x${imgCounter}`);
     prevImgEl.classList.toggle("hidden")
+
+    //prev preview scroll
+    nextPreviewImgEl.setAttribute("src", `${imgArray[imgCounter + 1]}`);
+    prevPreviewImgEl.setAttribute('src', `${imgArray[imgCounter - 1]}`);
 
 
 })
