@@ -35,22 +35,42 @@ for (let i = 0; i < imgArray.length; i++) {
         //queste sono le img a destra
         let currentImgEl = document.querySelector(`.x${i}`);
         currentImgEl.classList.remove('hidden');
-
-
     }
 
 }
 //💥 bonus
+// const imgDomArray = document.querySelectorAll('.center_cont > img');
+// console.log(imgDomArray);
 // // prev
-// const nodePrev = document.querySelector(`.x${imgCounter - 1}`)
-// const prevImg = nodePrev.cloneNode(true);
-// prevImg.classList.remove('hidden');
-// prevContainer.append(prevImg);
-// //next
-// const nodeNext = document.querySelector(`.x${imgCounter + 1}`)
-// const nextImg = nodeNext.cloneNode(true);
-// nextImg.classList.remove('hidden');
-// nextContainer.append(nextImg);
+// if (imgCounter > 0) {
+//     //vado a quella prima
+//     const nodePrev = imgDomArray[imgCounter - 1]
+//     const prevImg = nodePrev.cloneNode(true);
+//     prevImg.classList.remove('hidden');
+//     prevContainer.append(prevImg);
+
+// } else {
+//     //vado all'ultima
+//     const nodePrev = imgDomArray[imgCounter + imgDomArray.length - 1];
+//     const prevImg = nodePrev.cloneNode(true);
+//     prevImg.classList.remove('hidden');
+//     prevContainer.append(prevImg);
+// }
+
+// // ❌📛questo non va bene
+// // //next
+// // const nodeNext = imgDomArray[imgCounter + 1];
+// // const nextImg = nodeNext.cloneNode(true);
+// // nextImg.classList.remove('hidden');
+// // nextContainer.append(nextImg);
+
+// // if (imgCounter > imgArray.length - 1) {
+// //     const nodeNext = imgDomArray[0];
+// //     // vado alla prima
+// //     const nextImg = nodeNext.cloneNode(true);
+// //     nextImg.classList.remove('hidden');
+// //     nextContainer.append(nextImg);
+// // }
 
 
 
